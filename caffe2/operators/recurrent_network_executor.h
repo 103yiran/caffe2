@@ -131,6 +131,8 @@ class RecurrentNetworkExecutorBase {
             rnn_op.op = CreateOperator(step_net_def_.op(rnn_op.order), ws);
           }
         }
+        rnn_op.op->DisableEvent();
+
         timestep_ops_[t].emplace_back(rnn_op);
       }
     }
